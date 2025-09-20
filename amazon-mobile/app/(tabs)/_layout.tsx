@@ -2,10 +2,11 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import { StyledTabs } from '@/components/navigation/tabs';
+import CustomTabBar from '@/components/navigation/CustomTabBar';
 
 const Layout = () => {
   return (
-    <StyledTabs headerClassName='bg-dark text-white'>
+    <StyledTabs headerClassName='bg-dark text-white' tabBar={props => <CustomTabBar {...props} />}>
       <Tabs.Screen
         name='index'
         options={{
@@ -31,12 +32,7 @@ const Layout = () => {
           tabBarIcon: ({ color, size }) => <Ionicons name='menu-outline' color={color} size={size} />,
         }}
       />
-      <Tabs.Screen
-        name='rufus'
-        options={{
-          tabBarIcon: ({ color, size }) => <Ionicons name='person-outline' color={color} size={size} />,
-        }}
-      />
+      <Tabs.Screen name='rufus' />
     </StyledTabs>
   );
 };
